@@ -5,7 +5,7 @@ plugins {
 }
 
 asmconfig {
-    specificClass = ['com.test.asmdemo.Test']
+    specificClass = ['com.test.asmdemo.Test','com.yirun.libtest.Test']
 }
 
 android {
@@ -52,6 +52,7 @@ android {
 }
 
 dependencies {
+    implementation files('libs/libTest-0.0.1.jar')
 
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx

@@ -3,6 +3,9 @@ pluginManagement {
         maven {
             url "./plugin"
         }
+        flatDir {
+            dirs './app/libs'
+        }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
