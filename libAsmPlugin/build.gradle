@@ -1,0 +1,41 @@
+plugins {
+//    id 'java-library'
+    id 'kotlin'
+    id 'maven-publish'
+    id 'kotlin-kapt'
+//    alias(libs.plugins.jetbrains.kotlin.jvm)
+}
+apply plugin: 'groovy'
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+
+    implementation 'org.ow2.asm:asm-commons:9.2'
+    implementation 'com.android.tools.build:gradle:7.2.2'
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId "com.yirun"
+            artifactId "asmplugin"
+            version "1.0.0"
+
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            //推送到本地
+            url = uri('../plugin')
+        }
+    }
+}
+
+//java {
+//    sourceCompatibility = JavaVersion.VERSION_17
+//    targetCompatibility = JavaVersion.VERSION_17
+//}

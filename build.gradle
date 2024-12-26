@@ -1,5 +1,19 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+//buildscript{}一定要放在plugins{}之前
+buildscript {
+    dependencies {
+        //一定要先发布插件再添加这一行
+        classpath 'com.yirun:asmplugin:1.0.0'
+    }
+}
 plugins {
 alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.jetbrains.kotlin.jvm) apply false
 }
+
+//buildscript {
+//    dependencies {
+//        classpath(libs.my.asm.plugin)
+//    }
+//}

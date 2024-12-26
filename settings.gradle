@@ -1,5 +1,8 @@
 pluginManagement {
     repositories {
+        maven {
+            url "./plugin"
+        }
         google {
             content {
                 includeGroupByRegex("com\\.android.*")
@@ -21,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AmsPluginDemo"
 include ':app'
+include ':libAsmPlugin'
