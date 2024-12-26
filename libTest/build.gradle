@@ -1,0 +1,37 @@
+//plugins {
+//    id 'java-library'
+//    id 'org.jetbrains.kotlin.jvm'
+//}
+//
+//java {
+//    sourceCompatibility = JavaVersion.VERSION_17
+//    targetCompatibility = JavaVersion.VERSION_17
+//}
+plugins {
+    id 'kotlin'
+    id 'maven-publish'
+    id 'kotlin-kapt'
+}
+apply plugin: 'groovy'
+
+//dependencies {
+//}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId "com.test"
+            artifactId "libTest"
+            version "0.0.1"
+
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            //推送到本地
+            url = uri('../libs')
+        }
+    }
+}
