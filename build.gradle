@@ -3,7 +3,7 @@
 buildscript {
     dependencies {
         //一定要先发布插件再添加这一行
-//        classpath 'com.yirun:asmplugin:1.0.0'
+        classpath 'com.yirun:asmplugin:1.0.0'
     }
 }
 plugins {
