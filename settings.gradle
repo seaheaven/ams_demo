@@ -1,7 +1,10 @@
 pluginManagement {
     repositories {
         maven {
-            url "./plugin"
+            url "./plugin"//项目根目录
+//            url "../plugin"//项目同目录
+//            url "../../plugin"//项目父目录
+//            url "/Users/yourname/Projects/plugin"//绝对路径
         }
         flatDir {
             dirs './app/libs'
