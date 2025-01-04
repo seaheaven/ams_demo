@@ -38,11 +38,11 @@
         {
           "name": "asmplugin-1.0.0.jar",
           "url": "asmplugin-1.0.0.jar",
-          "size": 11946,
-          "sha512": "990366dc5781958b3f3cd935dccbbe9b47734ed6cae881498bef3a7a4d909a259b729e1325633d6b0be290c8f24b2a7a54b6919f576b4c252e0c42201fc3db76",
-          "sha256": "b9bb0536ceaf57786ca32d070b14838eae15c2dca797f449ce9d45115e051b14",
-          "sha1": "762ac407463140c8c14e5115f3d56965984ee824",
-          "md5": "15d1bd8e788bcfe9b29ff63bfe961ce8"
+          "size": 11926,
+          "sha512": "6fe359a88e20bbad7c0c82835953c97969226fa7bb854ae70ec826e5d3e025cfa3a8fd277abfdc06002e7fc3777d2daf9b9e1f3e343657c559afa9c101745b1e",
+          "sha256": "ba0ca937f0e544e13078e4d8e5eb8fd5c8da8a9eddab5db6147decea72083ac5",
+          "sha1": "734b36de0d77f2de83b73cc38e4b382f59c7eec2",
+          "md5": "bebc89123f234a5c4c963b0aa77e08b4"
         }
       ]
     },
@@ -84,11 +84,11 @@
         {
           "name": "asmplugin-1.0.0.jar",
           "url": "asmplugin-1.0.0.jar",
-          "size": 11946,
-          "sha512": "990366dc5781958b3f3cd935dccbbe9b47734ed6cae881498bef3a7a4d909a259b729e1325633d6b0be290c8f24b2a7a54b6919f576b4c252e0c42201fc3db76",
-          "sha256": "b9bb0536ceaf57786ca32d070b14838eae15c2dca797f449ce9d45115e051b14",
-          "sha1": "762ac407463140c8c14e5115f3d56965984ee824",
-          "md5": "15d1bd8e788bcfe9b29ff63bfe961ce8"
+          "size": 11926,
+          "sha512": "6fe359a88e20bbad7c0c82835953c97969226fa7bb854ae70ec826e5d3e025cfa3a8fd277abfdc06002e7fc3777d2daf9b9e1f3e343657c559afa9c101745b1e",
+          "sha256": "ba0ca937f0e544e13078e4d8e5eb8fd5c8da8a9eddab5db6147decea72083ac5",
+          "sha1": "734b36de0d77f2de83b73cc38e4b382f59c7eec2",
+          "md5": "bebc89123f234a5c4c963b0aa77e08b4"
         }
       ]
     }
