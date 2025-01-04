@@ -38,11 +38,11 @@
         {
           "name": "asmplugin-1.0.0.jar",
           "url": "asmplugin-1.0.0.jar",
-          "size": 15219,
-          "sha512": "eb5cd7344baff9a5f004b871e481241b6e7c7278527544361e37310d20fa0680801f70fba509795bcc5830e964e5c890312ca4c590c8433ca86d15c15c38f245",
-          "sha256": "ab42abd985bef164f29d6d66a6efe7c485c6e3e16b6c212847a8f760b80c769f",
-          "sha1": "0e4b444501ad28e7824cef32834063c63ae8dc94",
-          "md5": "c6b97c08600a64c163163455265056f8"
+          "size": 15396,
+          "sha512": "a08a926516f2cfd64e9a3837facefe7f7986daca0b04e984a532d5a77ed62a06b7e4aed528731de97bf444a4983e88f25250ca1a814dc10abf40c0d2cd57e67a",
+          "sha256": "35935dd31d511c60549246bb3db2f957fc2f565b2296973d6de78877c97f23ec",
+          "sha1": "3b61e190c1a7f4bdfe167a66fe6a1f34d7eab674",
+          "md5": "0d3d18a445f532768157197090b26411"
         }
       ]
     },
@@ -62,14 +62,14 @@
           "group": "org.ow2.asm",
           "module": "asm-commons",
           "version": {
-            "requires": "9.2"
+            "requires": "9.6"
           }
         },
         {
           "group": "com.android.tools.build",
           "module": "gradle",
           "version": {
-            "requires": "7.2.2"
+            "requires": "8.6.1"
           }
         },
         {
@@ -84,11 +84,11 @@
         {
           "name": "asmplugin-1.0.0.jar",
           "url": "asmplugin-1.0.0.jar",
-          "size": 15219,
-          "sha512": "eb5cd7344baff9a5f004b871e481241b6e7c7278527544361e37310d20fa0680801f70fba509795bcc5830e964e5c890312ca4c590c8433ca86d15c15c38f245",
-          "sha256": "ab42abd985bef164f29d6d66a6efe7c485c6e3e16b6c212847a8f760b80c769f",
-          "sha1": "0e4b444501ad28e7824cef32834063c63ae8dc94",
-          "md5": "c6b97c08600a64c163163455265056f8"
+          "size": 15396,
+          "sha512": "a08a926516f2cfd64e9a3837facefe7f7986daca0b04e984a532d5a77ed62a06b7e4aed528731de97bf444a4983e88f25250ca1a814dc10abf40c0d2cd57e67a",
+          "sha256": "35935dd31d511c60549246bb3db2f957fc2f565b2296973d6de78877c97f23ec",
+          "sha1": "3b61e190c1a7f4bdfe167a66fe6a1f34d7eab674",
+          "md5": "0d3d18a445f532768157197090b26411"
         }
       ]
     }
