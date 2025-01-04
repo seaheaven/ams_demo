@@ -20,7 +20,7 @@ class AsmPlugin: Plugin<Project> {
                 FramesComputationMode.COMPUTE_FRAMES_FOR_INSTRUMENTED_METHODS
             )
             variant.instrumentation.transformClassesWith(
-                TestClassVistorFactory::class.java,
+                TestClassVisitorFactory::class.java,
                 InstrumentationScope.ALL//all代表可以对jar、aar等依赖进行插装
 
             ) { params ->

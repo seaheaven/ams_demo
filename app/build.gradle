@@ -5,7 +5,7 @@ plugins {
 }
 
 asmconfig {
-    specificClass = ['com.test.asmdemo.Test','com.yirun.libtest.Test']
+    specificClass = ['com.test.asmdemo.Test','com.yirun.libtest.Test',"MainActivity"]
 }
 
 android {
