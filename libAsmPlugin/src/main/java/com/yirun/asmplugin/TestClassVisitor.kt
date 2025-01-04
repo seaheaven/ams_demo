@@ -25,6 +25,6 @@ class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, c
         exceptions: Array<out String>?
     ): MethodVisitor {
         val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
-        return TestMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
+        return CostTimeMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
     }
 }
