@@ -2,8 +2,12 @@ package com.yirun.amsplugindemo
 
 import android.util.Log
 
-class MethodLogTest2 {
+class MethodLogTest {
     fun test(){
+
+    }
+
+    fun test1(){
         Log.d("MethodLog", "hello!")
     }
 }

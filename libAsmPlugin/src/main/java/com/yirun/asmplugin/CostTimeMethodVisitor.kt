@@ -50,8 +50,7 @@ class CostTimeMethodVisitor(
         mv.visitVarInsn(LSTORE, slotIndex)
 
         mv.visitVarInsn(LLOAD, slotIndex)
-//        mv.visitInsn(LCONST_1)
-        mv.visitLdcInsn(10L)
+        mv.visitLdcInsn(500L)
         mv.visitInsn(LCMP)
 
         val label3 = Label()
@@ -74,8 +73,75 @@ class CostTimeMethodVisitor(
         mv.visitLabel(label3)
 
         mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitLdcInsn(200L)
+        mv.visitInsn(LCMP)
+
+        val label6 = Label()
+        mv.visitJumpInsn(IFLT, label6)
+
+        mv.visitLdcInsn("MethodTime")
+        mv.visitTypeInsn(NEW, "java/lang/StringBuilder")
+        mv.visitInsn(DUP)
+        mv.visitMethodInsn(INVOKESPECIAL, "java/lang/StringBuilder", "<init>", "()V", false)
+        mv.visitLdcInsn("${className}.${name} cost time:")
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;", false)
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(J)Ljava/lang/StringBuilder;", false)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "toString", "()Ljava/lang/String;", false)
+        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "w", "(Ljava/lang/String;Ljava/lang/String;)I", false)
+        mv.visitInsn(POP)
+
+        mv.visitJumpInsn(GOTO, label5)
+        mv.visitLabel(label6)
+
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitLdcInsn(100L)
+        mv.visitInsn(LCMP)
+
+        val label8 = Label()
+        mv.visitJumpInsn(IFLT, label8)
+
+        mv.visitLdcInsn("MethodTime")
+        mv.visitTypeInsn(NEW, "java/lang/StringBuilder")
+        mv.visitInsn(DUP)
+        mv.visitMethodInsn(INVOKESPECIAL, "java/lang/StringBuilder", "<init>", "()V", false)
+        mv.visitLdcInsn("${className}.${name} cost time:")
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;", false)
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(J)Ljava/lang/StringBuilder;", false)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "toString", "()Ljava/lang/String;", false)
+        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "i", "(Ljava/lang/String;Ljava/lang/String;)I", false)
+        mv.visitInsn(POP)
+
+        mv.visitJumpInsn(GOTO, label5)
+        mv.visitLabel(label8)
+
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitLdcInsn(10L)
+        mv.visitInsn(LCMP)
+
+        val label10 = Label()
+        mv.visitJumpInsn(IFLT, label10)
+
+        mv.visitLdcInsn("MethodTime")
+        mv.visitTypeInsn(NEW, "java/lang/StringBuilder")
+        mv.visitInsn(DUP)
+        mv.visitMethodInsn(INVOKESPECIAL, "java/lang/StringBuilder", "<init>", "()V", false)
+        mv.visitLdcInsn("${className}.${name} cost time:")
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;", false)
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(J)Ljava/lang/StringBuilder;", false)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "toString", "()Ljava/lang/String;", false)
+        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "d", "(Ljava/lang/String;Ljava/lang/String;)I", false)
+        mv.visitInsn(POP)
+
+        mv.visitJumpInsn(GOTO, label5)
+        mv.visitLabel(label10)
+
+        mv.visitVarInsn(LLOAD, slotIndex)
         mv.visitInsn(LCONST_1)
         mv.visitInsn(LCMP)
+
         mv.visitJumpInsn(IFLT, label5)
 
         mv.visitLdcInsn("MethodTime")

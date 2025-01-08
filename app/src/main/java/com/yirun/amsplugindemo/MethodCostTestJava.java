@@ -2,7 +2,7 @@ package com.yirun.amsplugindemo;
 
 import android.util.Log;
 
-public class MethodCostTest2 {
+public class MethodCostTestJava {
     public void test(){
 
     }
