@@ -69,7 +69,27 @@ class CostTimeMethodVisitor(
         mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "e", "(Ljava/lang/String;Ljava/lang/String;)I", false)
         mv.visitInsn(POP)
 
+        val label5 = Label()
+        mv.visitJumpInsn(GOTO, label5)
         mv.visitLabel(label3)
+
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitInsn(LCONST_1)
+        mv.visitInsn(LCMP)
+        mv.visitJumpInsn(IFLT, label5)
+
+        mv.visitLdcInsn("MethodTime")
+        mv.visitTypeInsn(NEW, "java/lang/StringBuilder")
+        mv.visitInsn(DUP)
+        mv.visitMethodInsn(INVOKESPECIAL, "java/lang/StringBuilder", "<init>", "()V", false)
+        mv.visitLdcInsn("${className}.${name} cost time:")
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(Ljava/lang/String;)Ljava/lang/StringBuilder;", false)
+        mv.visitVarInsn(LLOAD, slotIndex)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(J)Ljava/lang/StringBuilder;", false)
+        mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "toString", "()Ljava/lang/String;", false)
+        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "v", "(Ljava/lang/String;Ljava/lang/String;)I", false)
+        mv.visitInsn(POP)
+        mv.visitLabel(label5)
 
         super.onMethodExit(opcode)
     }
