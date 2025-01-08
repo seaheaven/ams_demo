@@ -4,8 +4,10 @@ import android.util.Log;
 
 public class MethodCostTest2 {
     public void test(){
-        long startTime = System.nanoTime();
-        long costTime = System.nanoTime() - startTime;
-        Log.d("MethodTime", "cost time:" + costTime);
+        long startTime = System.currentTimeMillis();
+        long costTime = System.currentTimeMillis() - startTime;
+        if(costTime >= 10){
+            Log.e("MethodTime", "cost time:" + costTime);
+        }
     }
 }

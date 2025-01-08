@@ -1,8 +1,9 @@
 package com.yirun.asmplugin
 
+import org.objectweb.asm.Label
 import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.commons.AdviceAdapter
 import org.objectweb.asm.Type
+import org.objectweb.asm.commons.AdviceAdapter
 
 /**
  * 2025-01-04 19:22:21.547 32425-32425 MethodTime              com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<init> cost time:84
@@ -18,18 +19,43 @@ class CostTimeMethodVisitor(
     private val className: String,
 ): AdviceAdapter(api, mv, access, name, descriptor) {
     private val slotIndex = newLocal(Type.LONG_TYPE)
+
+    override fun visitCode() {
+        println("${className}.${name} visitCode")
+        super.visitCode()
+    }
+
+    override fun visitEnd() {
+        println("${className}.${name} visitEnd")
+        super.visitEnd()
+    }
+
+    override fun visitJumpInsn(opcode: Int, label: Label?) {
+        println("${className}.${name} visitJumpInsn opcode:$opcode,label:$label,")
+        super.visitJumpInsn(opcode, label)
+
+    }
     override fun onMethodEnter() {
-        println("onMethodEnter")
+        println("${className}.${name} onMethodEnter")
         super.onMethodEnter()
-        mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "nanoTime", "()J", false)
+        mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "currentTimeMillis", "()J", false)
         mv.visitVarInsn(LSTORE, slotIndex)
     }
 
     override fun onMethodExit(opcode: Int) {
-        mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "nanoTime", "()J", false)
+        println("${className}.${name} onMethodExit opcode:$opcode")
+        mv.visitMethodInsn(INVOKESTATIC, "java/lang/System", "currentTimeMillis", "()J", false)
         mv.visitVarInsn(LLOAD, slotIndex)
         mv.visitInsn(LSUB)
         mv.visitVarInsn(LSTORE, slotIndex)
+
+        mv.visitVarInsn(LLOAD, slotIndex)
+//        mv.visitInsn(LCONST_1)
+        mv.visitLdcInsn(10L)
+        mv.visitInsn(LCMP)
+
+        val label3 = Label()
+        mv.visitJumpInsn(IFLT, label3)
 
         mv.visitLdcInsn("MethodTime")
         mv.visitTypeInsn(NEW, "java/lang/StringBuilder")
@@ -40,8 +66,10 @@ class CostTimeMethodVisitor(
         mv.visitVarInsn(LLOAD, slotIndex)
         mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "append", "(J)Ljava/lang/StringBuilder;", false)
         mv.visitMethodInsn(INVOKEVIRTUAL, "java/lang/StringBuilder", "toString", "()Ljava/lang/String;", false)
-        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "d", "(Ljava/lang/String;Ljava/lang/String;)I", false)
+        mv.visitMethodInsn(INVOKESTATIC, "android/util/Log", "e", "(Ljava/lang/String;Ljava/lang/String;)I", false)
         mv.visitInsn(POP)
+
+        mv.visitLabel(label3)
 
         super.onMethodExit(opcode)
     }
