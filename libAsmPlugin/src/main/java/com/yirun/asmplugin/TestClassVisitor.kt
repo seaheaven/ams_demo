@@ -30,15 +30,17 @@ class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, c
         signature: String?,
         exceptions: Array<out String>?
     ): MethodVisitor? {
+        if(removeMethod(name, descriptor)){
+            return null
+        }
 
         if(className == "com/otherlib/util/DeviceUtil"){
-            //移除整个方法
-            if(name == mMethodName && (descriptor == mMethodDesc)){
-                println("---------移除 getDeviceId 方法------------")
-                return null
-            }
             val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
-            return ReplaceMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
+
+//            //替换方法
+//            return ReplaceMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
+            //清空方法体，返回默认值
+            return ClearMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
         }else {
             val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
             return CostTimeMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
@@ -46,12 +48,28 @@ class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, c
     }
 
     override fun visitEnd() {
+        addMethod()
+        super.visitEnd()
+    }
+
+    private fun removeMethod(name: String?,
+                             descriptor: String?,):Boolean{
+        return false
+        //移除整个方法
+        if(className == "com/otherlib/util/DeviceUtil" && name == mMethodName && descriptor == mMethodDesc){
+            println("---------移除 getDeviceId 方法------------")
+            return true
+        }
+        return false
+    }
+
+    private fun addMethod(){
+        return
         if(className == "com/otherlib/util/DeviceUtil"){
             val methodVisitor = cv.visitMethod(mAccess, mMethodName, mMethodDesc, null, null)
             methodVisitor.visitLdcInsn("")
             methodVisitor.visitInsn(ARETURN)
             methodVisitor.visitEnd()
         }
-        super.visitEnd()
     }
 }
