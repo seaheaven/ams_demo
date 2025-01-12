@@ -48,4 +48,12 @@ public class MethodCostTestJava {
             Log.v("MethodTime", "thread:" + thread + "_,cost time:" + costTime);
         }
     }
+
+    public void test5(){
+        long startTime = InjectImp.s("test5");
+
+        InjectImp.e(startTime, "test5");
+    }
+
+
 }

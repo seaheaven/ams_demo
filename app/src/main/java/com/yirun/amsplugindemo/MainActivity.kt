@@ -12,12 +12,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.lifecycleScope
 import com.yirun.amsplugindemo.ui.theme.AmsPluginDemoTheme
 import com.yirun.libtest.Test
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+    fun aa(){
+        for (i in 0..10000){
+            for ( j in 0..100000){
+
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        lifecycleScope.launch(Dispatchers.IO){
+            aa()
+        }
         enableEdgeToEdge()
         setContent {
             AmsPluginDemoTheme {

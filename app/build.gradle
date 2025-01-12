@@ -8,7 +8,8 @@ asmconfig {
     //某包名下的所有类：com.yirun.amsplugindemo
     //具体包名下的Test类：com.yirun.amsplugindemo.Test
     //所有包名下的Test类
-    specificClass = ['com.yirun.amsplugindemo.Test','com.yirun.libtest.Test',"MainActivity"]
+//    specificClass = ['com.yirun.amsplugindemo.Test','com.yirun.libtest.Test',"MainActivity"]
+    specificClass = ['com.yirun.amsplugindemo.Test',"MainActivity","com.otherlib.util.DeviceUtil"]
 }
 
 android {

@@ -25,6 +25,10 @@ class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, c
         exceptions: Array<out String>?
     ): MethodVisitor {
         val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
-        return CostTimeMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
+        if(className == "com/otherlib/util/DeviceUtil"){
+            return ReplaceMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
+        }else {
+            return CostTimeMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
+        }
     }
 }
