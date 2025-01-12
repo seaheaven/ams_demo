@@ -3,9 +3,13 @@ package com.yirun.asmplugin
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Opcodes.ACC_PUBLIC
+import org.objectweb.asm.Opcodes.ACC_STATIC
+import org.objectweb.asm.Opcodes.ARETURN
 
 class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, classVisitor) {
     private var className: String? = null
+    private val mAccess = ACC_PUBLIC + ACC_STATIC
     private val mMethodName = "getDeviceId"
     private val mMethodDesc = "(Landroid/content/Context;)Ljava/lang/String;"
     override fun visit(
@@ -28,6 +32,7 @@ class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, c
     ): MethodVisitor? {
 
         if(className == "com/otherlib/util/DeviceUtil"){
+            //移除整个方法
             if(name == mMethodName && (descriptor == mMethodDesc)){
                 println("---------移除 getDeviceId 方法------------")
                 return null
@@ -38,5 +43,15 @@ class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, c
             val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
             return CostTimeMethodVisitor(api, methodVisitor, access, name?:"", descriptor?:"", className?:"")
         }
+    }
+
+    override fun visitEnd() {
+        if(className == "com/otherlib/util/DeviceUtil"){
+            val methodVisitor = cv.visitMethod(mAccess, mMethodName, mMethodDesc, null, null)
+            methodVisitor.visitLdcInsn("")
+            methodVisitor.visitInsn(ARETURN)
+            methodVisitor.visitEnd()
+        }
+        super.visitEnd()
     }
 }
