@@ -1,13 +1,13 @@
 package com.yirun.asmplugin
 
+import com.yirun.asmplugin.util.OpcodesUtil
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Opcodes.ACC_PUBLIC
 import org.objectweb.asm.Opcodes.ACC_STATIC
 import org.objectweb.asm.Opcodes.ARETURN
 
-class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(Opcodes.ASM7, classVisitor) {
+class TestClassVisitor(classVisitor: ClassVisitor): ClassVisitor(OpcodesUtil.ASM_VERSION, classVisitor) {
     private var className: String? = null
     private val mAccess = ACC_PUBLIC + ACC_STATIC
     private val mMethodName = "getDeviceId"
