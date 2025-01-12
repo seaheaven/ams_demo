@@ -6,9 +6,9 @@ import org.objectweb.asm.Type
 import org.objectweb.asm.commons.AdviceAdapter
 
 /**
- * 2025-01-04 19:22:21.547 32425-32425 MethodTime              com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<init> cost time:84
- * 2025-01-04 19:22:21.547 32425-32425 MethodTime              com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<clinit> cost time:190167
- * 2025-01-04 19:22:22.040 32425-32425 MethodTime              com.yirun.amsplugindemo              D  com/yirun/libtest/Test.test cost time:493098125
+ * 2025-01-04 19:22:21.547 32425-32425 MethodTime              com.yirun.asmplugindemo              D  com/yirun/libtest/Test.<init> cost time:84
+ * 2025-01-04 19:22:21.547 32425-32425 MethodTime              com.yirun.asmplugindemo              D  com/yirun/libtest/Test.<clinit> cost time:190167
+ * 2025-01-04 19:22:22.040 32425-32425 MethodTime              com.yirun.asmplugindemo              D  com/yirun/libtest/Test.test cost time:493098125
  */
 class CostTimeMethodVisitor(
     api: Int,
@@ -43,7 +43,7 @@ class CostTimeMethodVisitor(
 //        mv.visitVarInsn(LSTORE, slotIndex)
 
         mv.visitLdcInsn("${className}.${name}")
-        mv.visitMethodInsn(INVOKESTATIC, "com/yirun/amsplugindemo/InjectImp", "s", "(Ljava/lang/String;)J", false)
+        mv.visitMethodInsn(INVOKESTATIC, "com/yirun/asmplugindemo/InjectImp", "s", "(Ljava/lang/String;)J", false)
         mv.visitVarInsn(LSTORE, slotIndex)
     }
 
@@ -51,11 +51,11 @@ class CostTimeMethodVisitor(
         println("${className}.${name} onMethodExit opcode:$opcode")
 
 //        mv.visitVarInsn(LLOAD, slotIndex)
-//        mv.visitMethodInsn(INVOKESTATIC, "com/yirun/amsplugindemo/MethodCostTestJava", "log", "(J)V", false)
+//        mv.visitMethodInsn(INVOKESTATIC, "com/yirun/asmplugindemo/MethodCostTestJava", "log", "(J)V", false)
 
         mv.visitVarInsn(LLOAD, slotIndex)
         mv.visitLdcInsn("${className}.${name}")
-        mv.visitMethodInsn(INVOKESTATIC, "com/yirun/amsplugindemo/InjectImp", "e", "(JLjava/lang/String;)V", false)
+        mv.visitMethodInsn(INVOKESTATIC, "com/yirun/asmplugindemo/InjectImp", "e", "(JLjava/lang/String;)V", false)
         super.onMethodExit(opcode)
     }
 }

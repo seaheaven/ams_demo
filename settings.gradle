@@ -28,7 +28,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AmsPluginDemo"
+rootProject.name = "AsmPluginDemo"
 include ':app'
 include ':libAsmPlugin'
 include ':libTest'

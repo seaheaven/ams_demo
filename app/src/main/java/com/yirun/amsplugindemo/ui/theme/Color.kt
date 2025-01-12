@@ -1,4 +1,4 @@
-package com.yirun.amsplugindemo.ui.theme
+package com.yirun.asmplugindemo.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

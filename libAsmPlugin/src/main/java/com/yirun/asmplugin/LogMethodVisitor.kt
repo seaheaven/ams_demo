@@ -5,12 +5,12 @@ import org.objectweb.asm.commons.AdviceAdapter
 import org.objectweb.asm.Type
 
 /**
- * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<clinit> hello!
- * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<init> hello!
- * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<init> bye bye!
- * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.amsplugindemo              D  com/yirun/libtest/Test.<clinit> bye bye!
- * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.amsplugindemo              D  com/yirun/libtest/Test.test hello!
- * 2025-01-04 19:17:39.834 31867-31867 MethodLog               com.yirun.amsplugindemo              D  com/yirun/libtest/Test.test bye bye!
+ * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.asmplugindemo              D  com/yirun/libtest/Test.<clinit> hello!
+ * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.asmplugindemo              D  com/yirun/libtest/Test.<init> hello!
+ * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.asmplugindemo              D  com/yirun/libtest/Test.<init> bye bye!
+ * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.asmplugindemo              D  com/yirun/libtest/Test.<clinit> bye bye!
+ * 2025-01-04 19:17:39.340 31867-31867 MethodLog               com.yirun.asmplugindemo              D  com/yirun/libtest/Test.test hello!
+ * 2025-01-04 19:17:39.834 31867-31867 MethodLog               com.yirun.asmplugindemo              D  com/yirun/libtest/Test.test bye bye!
  */
 class LogMethodVisitor(
     api: Int,

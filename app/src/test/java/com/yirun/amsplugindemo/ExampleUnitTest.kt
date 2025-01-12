@@ -1,4 +1,4 @@
-package com.yirun.amsplugindemo
+package com.yirun.asmplugindemo
 
 import org.junit.Test
 

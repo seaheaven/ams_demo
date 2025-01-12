@@ -1,4 +1,4 @@
-package com.yirun.amsplugindemo
+package com.yirun.asmplugindemo
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,7 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
-import com.yirun.amsplugindemo.ui.theme.AmsPluginDemoTheme
+import com.yirun.asmplugindemo.ui.theme.AsmPluginDemoTheme
 import com.yirun.libtest.Test
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
         }
         enableEdgeToEdge()
         setContent {
-            AmsPluginDemoTheme {
+            AsmPluginDemoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -57,7 +57,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    AmsPluginDemoTheme {
+    AsmPluginDemoTheme {
         Greeting("Android")
     }
 }
